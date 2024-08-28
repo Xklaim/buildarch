@@ -83,6 +83,9 @@ const contactMsg = document.getElementById('message');
 
 
 function sendEmail() {
+
+    if (fullName.value != "" && email.value !== "" && phone.value !== "" && subject.value !== "" && contactMsg.value !== "") {
+
     Email.send({
         Host : "smtp.elasticemail.com",
         Username : "punitsofficemail@gmail.com",
@@ -98,6 +101,10 @@ function sendEmail() {
     }).then(
       message => alert("you have successfully sent us a message")
     );
+   }
+   else {
+    alert("Please enter details in all the fields.")
+   }
 }
 
 form.addEventListener("submit", (e) => {
