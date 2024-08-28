@@ -99,7 +99,15 @@ function sendEmail() {
         Customer phone: ${phone.value} <br> 
         Customer message: ${contactMsg.value}`
     }).then(
-      message => alert("you have successfully sent us a message")
+      message => {
+        if (message == "OK"){
+            Swal.fire({
+                title: "Success!",
+                text: "Message sent successfully!",
+                icon: "success"
+              });
+        }
+      }
     );
    }
    else {
