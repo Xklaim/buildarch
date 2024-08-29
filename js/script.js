@@ -113,9 +113,9 @@ function sendEmail() {
    else {
     Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>'
+        title: "Message Could Not Be Sent",
+        text: "Please enter details in all the fields",
+        footer: '<a href="#">Why do we need your details?</a>'
       });
    }
 }
