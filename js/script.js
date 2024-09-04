@@ -123,4 +123,12 @@ function sendEmail() {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     sendEmail()
+
+    // clearing the fields
+    fullName.value = "";
+    email.value = "";
+    phone.value = "";
+    subject.value = "";
+    contactMsg.value = "";
+
 })
