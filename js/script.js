@@ -84,7 +84,7 @@ const contactMsg = document.getElementById('message');
 
 function sendEmail() {
 
-    if (fullName.value != "" && email.value !== "" && phone.value !== "" && subject.value !== "" && contactMsg.value !== "") {
+    if (fullName.value !== "" && email.value !== "" && phone.value !== "" && subject.value !== "" && contactMsg.value !== "") {
 
     Email.send({
         Host : "smtp.elasticemail.com",
