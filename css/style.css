@@ -610,3 +610,12 @@ span {
         margin-top: 2rem;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1f242d;
+        --second-bg-color: #323946;
+        --text-color: #fff;
+        --main-color: rgb(39, 255, 226);
+    }
+  }
