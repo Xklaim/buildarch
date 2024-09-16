@@ -225,7 +225,7 @@ span {
     min-height: 25vh;
     width: fit-content; /* Could be more or less, depending on screen size */
     color: var(--text-color);
-    font-size: large;
+    font-size: 1.6rem;
   }
 
   .modal-content p a {
