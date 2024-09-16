@@ -144,23 +144,63 @@ const colorMode = document.getElementById("modeBtn");
 //   }
   
 
-let isDarkMode = true;
+// let isDarkMode = true;
 
-function changeTheme() {
+// function changeTheme() {
+//   if (isDarkMode) {
+//     document.documentElement.style.setProperty('--main-color', 'rgb(0, 150, 136)');    
+//     document.documentElement.style.setProperty('--bg-color', '#f0f0f5');    
+//     document.documentElement.style.setProperty('--second-bg-color', '#fff'); 
+//     document.documentElement.style.setProperty('--text-color', '#1f1f1f');
+//     colorMode.innerHTML = '<i class="bx bxs-moon"></i>';
+//   } else {
+//     document.documentElement.style.setProperty('--main-color', 'rgb(39, 255, 226)');    
+//     document.documentElement.style.setProperty('--bg-color', '#1f242d');    
+//     document.documentElement.style.setProperty('--second-bg-color', '#323946'); 
+//     document.documentElement.style.setProperty('--text-color', '#fff');
+//     colorMode.innerHTML = '<i class="bx bxs-sun"></i>';
+//   }
+
+//   isDarkMode = !isDarkMode; // Toggle the state
+// }
+
+
+let isDarkMode = true; // Default value
+
+// Function to apply the current theme based on `isDarkMode`
+function applyTheme(isDarkMode) {
+  const colorMode = document.getElementById('modeBtn'); // Get button by id
+
   if (isDarkMode) {
-    document.documentElement.style.setProperty('--main-color', 'rgb(0, 150, 136)');    
-    document.documentElement.style.setProperty('--bg-color', '#f0f0f5');    
-    document.documentElement.style.setProperty('--second-bg-color', '#fff'); 
-    document.documentElement.style.setProperty('--text-color', '#1f1f1f');
-    colorMode.innerHTML = '<i class="bx bxs-moon"></i>';
-  } else {
+    // Apply dark mode
     document.documentElement.style.setProperty('--main-color', 'rgb(39, 255, 226)');    
     document.documentElement.style.setProperty('--bg-color', '#1f242d');    
     document.documentElement.style.setProperty('--second-bg-color', '#323946'); 
     document.documentElement.style.setProperty('--text-color', '#fff');
-    colorMode.innerHTML = '<i class="bx bxs-sun"></i>';
+    colorMode.innerHTML = '<i class="bx bxs-sun"></i>'; // Sun icon for dark mode
+  } else {
+    // Apply light mode
+    document.documentElement.style.setProperty('--main-color', 'rgb(0, 150, 136)');    
+    document.documentElement.style.setProperty('--bg-color', '#f0f0f5');    
+    document.documentElement.style.setProperty('--second-bg-color', '#fff'); 
+    document.documentElement.style.setProperty('--text-color', '#1f1f1f');
+    colorMode.innerHTML = '<i class="bx bxs-moon"></i>'; // Moon icon for light mode
   }
-
-  isDarkMode = !isDarkMode; // Toggle the state
 }
+
+// Function to toggle between light and dark modes
+function changeTheme() {
+  isDarkMode = !isDarkMode; // Toggle dark mode state
+  applyTheme(isDarkMode); // Apply the updated theme
+
+  // Store the current theme in localStorage
+  localStorage.setItem('isDarkMode', isDarkMode ? 'true' : 'false');
+}
+
+// On page load, check localStorage for saved theme and apply it
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('isDarkMode');
+  isDarkMode = savedTheme === 'true'; // Get saved theme from localStorage
+  applyTheme(isDarkMode); // Apply the saved theme
+});
 
