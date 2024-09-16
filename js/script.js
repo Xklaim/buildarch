@@ -132,3 +132,35 @@ form.addEventListener("submit", (e) => {
     contactMsg.value = "";
 
 })
+
+const colorMode = document.getElementById("modeBtn");
+
+// function changeTheme() {
+//     document.documentElement.style.setProperty('--main-color', 'rgb(0, 150, 136)');    
+//     document.documentElement.style.setProperty('--bg-color', '#f0f0f5');    
+//     document.documentElement.style.setProperty('--second-bg-color', '#fff'); 
+//     document.documentElement.style.setProperty('--text-color', '#1f1f1f');
+//     colorMode.innerHTML = '<i class="bx bx-moon"></i>';
+//   }
+  
+
+let isDarkMode = true;
+
+function changeTheme() {
+  if (isDarkMode) {
+    document.documentElement.style.setProperty('--main-color', 'rgb(0, 150, 136)');    
+    document.documentElement.style.setProperty('--bg-color', '#f0f0f5');    
+    document.documentElement.style.setProperty('--second-bg-color', '#fff'); 
+    document.documentElement.style.setProperty('--text-color', '#1f1f1f');
+    colorMode.innerHTML = '<i class="bx bxs-moon"></i>';
+  } else {
+    document.documentElement.style.setProperty('--main-color', 'rgb(39, 255, 226)');    
+    document.documentElement.style.setProperty('--bg-color', '#1f242d');    
+    document.documentElement.style.setProperty('--second-bg-color', '#323946'); 
+    document.documentElement.style.setProperty('--text-color', '#fff');
+    colorMode.innerHTML = '<i class="bx bxs-sun"></i>';
+  }
+
+  isDarkMode = !isDarkMode; // Toggle the state
+}
+
