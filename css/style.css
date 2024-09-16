@@ -17,6 +17,7 @@
     --second-bg-color: #323946;
     --text-color: #fff;
     --main-color: rgb(39, 255, 226);
+    --bg-color-opacity: rgba(31, 36, 45, 0.4);
 }
 
 html {
@@ -156,7 +157,7 @@ span {
 
 }
 
-.social-media a, button {
+.social-media a, .social-media button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +172,7 @@ span {
     transition: .5s ease;
 }
 
-.social-media button:hover, a:hover{
+.social-media button:hover, .social-media a:hover{
     background: var(--main-color);
     color: var(--second-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
@@ -196,6 +197,69 @@ span {
 
 
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--bg-color); /* Fallback color */
+    background-color: var(--bg-color-opacity); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    margin: 20% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 2px solid var(--main-color);
+    border-radius: 5%;
+    min-height: 25vh;
+    width: fit-content; /* Could be more or less, depending on screen size */
+    color: var(--text-color);
+    font-size: large;
+  }
+
+  .modal-content p a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  /* The Close Button */
+  .close {
+    color: var(--main-color);
+    font-size: 3.5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 1rem var(--main-color);
+    animation: floatIcon 4s infinite;
+  }
+
+  @keyframes floatIcon {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1.4rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+  
+  .close:hover,
+  .close:focus {
+    box-shadow: none;
+    cursor: pointer;
+    animation-play-state: paused;
+  }
 
 .about {
     display: flex;
