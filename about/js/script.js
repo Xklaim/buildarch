@@ -204,3 +204,18 @@ window.addEventListener('DOMContentLoaded', () => {
   applyTheme(isDarkMode); // Apply the saved theme
 });
 
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+      // Change the title when the tab is inactive
+      document.title = 'Come back! 🥺';
+  } else {
+      // Restore the original title when the tab is active
+      document.title = "Build Arch 🏙️";
+  }
+});
+
+setInterval(() => {
+  if (!document.hidden) {
+      document.title = document.title === "Build Arch 🏙️" ? "Architects 👷" : "Build Arch 🏙️";
+  }
+}, 2000);
